@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "qns-shark"
+version = "0.1.0"
+description = "QN-Shark core utilities for Quantum Event Records and .qpcap handling"
+readme = "README.md"
+authors = [
+  {name = "QN-Shark Team"}
+]
+license = {text = "Apache-2.0"}
+requires-python = ">=3.10"
+dependencies = [
+  "pydantic>=2.0",
+  "pyarrow>=12.0",
+  "typer>=0.9",
+  "rich>=13.0"
+]
+
+[project.optional-dependencies]
+test = [
+  "pytest",
+  "pytest-cov"
+]
+
+[project.scripts]
+qns-shark = "qns_shark.cli:app"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-ra"
+testpaths = [
+  "tests"
+]
